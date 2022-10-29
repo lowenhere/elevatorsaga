@@ -14,7 +14,7 @@ var createWorldCreator = function() {
     };
     creator.createElevators = function(elevatorCount, floorCount, floorHeight, elevatorCapacities) {
         elevatorCapacities = elevatorCapacities || [4];
-        var currentX = 200.0;
+        var currentX = 120.0;
         var elevators = _.map(_.range(elevatorCount), function(e, i) {
             var elevator = new Elevator(2.6, floorCount, floorHeight, elevatorCapacities[i%elevatorCapacities.length]);
 
@@ -22,7 +22,7 @@ var createWorldCreator = function() {
             elevator.moveTo(currentX, null);
             elevator.setFloorPosition(0);
             elevator.updateDisplayPosition();
-            currentX += (20 + elevator.width);
+            currentX += (10 + elevator.width);
             return elevator;
         });
         return elevators;

@@ -53,9 +53,8 @@ dl dd {
 
 
 .container {
-    width: 1220px;
     margin: 0 auto;
-    padding: 20px 0 40px 0;
+    padding: 20px 5px;
     background-color: #BFBD9F;
 }
 
@@ -114,17 +113,8 @@ button.right {
     margin: 0 20px;
 }
 
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
 .header {
-    height: 60px;
+    position: relative;
 }
 
 .header h1 {
@@ -152,46 +142,50 @@ button.right {
     margin-right: 10px;
 }
 
-
 .codestatus {
     padding-top: 10px;
 }
 
 .CodeMirror {
     font: 14px Consolas, Monaco, monospace;
-    width: 1220px;
     margin: 10px auto;
     height: 320px;
 }
 
+.challenge {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
 .world {
     position: relative;
-    width: 1220px;
     background-color: #333;
     padding: 0;
-    overflow: hidden;
+}
+
+.innerworld_container {
+    position: relative;
+    overflow-y: hidden; 
+    overflow-x: scroll; 
 }
 
 .innerworld {
     position: relative;
     height: 100%;
-    width: 938px;
     border-right: 1px solid black;
     border-left: 1px solid black;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: visible;
+    box-sizing: border-box;
 }
 
 .statscontainer {
     font: 12px Consolas, Monaco, monospace;
     line-height: 10px;
     color: #999;
-    position: absolute;
-    top: 0;
-    right: 0px;
-    width: 240px;
-    height: 200px;
-    padding: 20px;
-    z-index: 1;
+    padding: 10px;
 }
 
 .statscontainer div {
@@ -199,30 +193,24 @@ button.right {
 }
 
 .statscontainer div, .statscontainer span {
-    position: absolute;
     display: block;
-    width: 240px;
-    height: 10px;
 }
 
 .statscontainer .value {
     text-align: right;
 }
 
-
 .feedbackcontainer {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
 }
 
 .feedback {
-    position: absolute;
-    width: 1280px;
-    height: 2000px;
-    padding-top: 20px;
     line-height: 20px;
     text-align: center;
     background-color: rgba(44,44,44, 0.6);
-    z-index: 5;
     overflow: hidden;
 }
 
@@ -314,8 +302,8 @@ button.right {
 
 .floor {
     position: absolute;
-    width: 100%;
     height: 49px;
+    min-width: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.24), rgba(255,255,255,0.1)); /* Standard syntax */
     border-bottom: 1px solid #333;

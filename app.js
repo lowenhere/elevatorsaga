@@ -168,6 +168,7 @@ $(function() {
         app.world = app.worldCreator.createWorld(challenges[challengeIndex].options);
         window.world = app.world;
 
+        $feedback.hide();
         clearAll([$world, $feedback]);
         presentStats($stats, app.world);
         presentChallenge($challenge, challenges[challengeIndex], app, app.world, app.worldController, challengeIndex + 1, challengeTempl);
@@ -181,6 +182,7 @@ $(function() {
         app.world.on("stats_changed", function() {
             var challengeStatus = challenges[challengeIndex].condition.evaluate(app.world);
             if(challengeStatus !== null) {
+                $feedback.show();
                 app.world.challengeEnded = true;
                 app.worldController.setPaused(true);
                 if(challengeStatus) {
