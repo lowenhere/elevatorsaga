@@ -68,6 +68,11 @@ function presentFeedback($parent, feedbackTempl, world, title, message, url) {
     $parent.html(riot.render(feedbackTempl, { title: title, message: message, url: url, paddingTop: world.floors.length * world.floorHeight * 0.2 }));
     if (!url) {
         $parent.find("a").remove();
+    } else {
+        $parent.find("a").on("click", (e) => {
+            e.preventDefault();
+            window.location.hash = url;
+        });
     }
 };
 
